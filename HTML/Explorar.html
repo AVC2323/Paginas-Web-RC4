@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rota Express - Explorar</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="icon" type="image/x-icon"
+          href="images/shoppingcart_77968.ico">
+</head>
+
+<body>
+
+   <header>
+
+        <!-- LOGOTIPO ROTA EXPRESS -->
+        <img src="images/Rota_Express.png" alt="Logo Rota Express" class="logo">
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="Explorar.html">Explorar</a>
+            <a href="Pedidos.html">Pedidos</a>
+            <a href="TornaTeParceiro.html">Torna-te Parceiro</a>
+            <a href="Perfil.html">Perfil</a>
+            <a href="Contactos.html">Contactos</a>
+
+            <!-- Link do Carrinho com o ícone .ico -->
+            <a href="#" class="cart-link">
+                <img src="images/shoppingcart_77968.ico" alt="Ícone Carrinho" class="cart-icon">
+                Carrinho
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- TÍTULO -->
+        <section class="explore-hero">
+
+            <h1>Explora o que temos para ti</h1>
+
+            <p>
+                Encontra restaurantes e lojas perto de ti.
+            </p>
+
+            <!-- PESQUISA -->
+            <div class="explore-search">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Pesquisa por restaurante, loja ou comida..."
+                >
+
+                <button onclick="pesquisar()">
+                    Pesquisar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIAS -->
+        <section class="explore-categories">
+
+            <h2>Categorias</h2>
+
+            <div class="explore-category-list">
+
+                <button onclick="filtrarCategoria('todos')">
+                    🍽️
+                    <span>Todos</span>
+                </button>
+
+                <button onclick="filtrarCategoria('hamburguer')">
+                    🍔
+                    <span>Hambúrgueres</span>
+                </button>
+
+                <button onclick="filtrarCategoria('pizza')">
+                    🍕
+                    <span>Pizza</span>
+                </button>
+
+                <button onclick="filtrarCategoria('sushi')">
+                    🍣
+                    <span>Sushi</span>
+                </button>
+
+                <button onclick="filtrarCategoria('padaria')">
+                    🥐
+                    <span>Padarias</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+        <section class="results">
+
+            <h2>Estabelecimentos perto de ti</h2>
+
+            <div class="restaurant-list">
+
+
+                <!-- RESTAURANTE 1 -->
+                <div class="restaurant-card" data-category="hamburguer">
+
+                  
+
+                    <div class="restaurant-info">
+
+                        <h3>Rota Burger</h3>
+
+                        <img src="images/hamburgerimage.jpg" alt="Ícone Hambúrguer" class="categorias-icon">
+
+                        <p>⭐ 4.7 · 20-30 min</p>
+
+                        <p>📍 1.2 km</p>
+
+                        <button onclick="verRestaurante('Rota Burger')">
+                            Ver restaurante
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESTAURANTE 2 -->
+                <div class="restaurant-card" data-category="pizza">
+
+                 
+
+                    <div class="restaurant-info">
+
+                        <h3>Pizza Express</h3>
+
+                       <img src="images/pizzaimage.jpg" alt="Ícone Pizza" class="categorias-icon">
+
+                        <p>⭐ 4.5 · 25-35 min</p>
+
+                        <p>📍 1.8 km</p>
+
+                        <button onclick="verRestaurante('Pizza Express')">
+                            Ver restaurante
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESTAURANTE 3 -->
+                <div class="restaurant-card" data-category="sushi">
+
+               
+
+                    <div class="restaurant-info">
+
+                        <h3>Sushi House</h3>
+
+                        <img src="images/sushiimage.jpg" alt="Ícone Sushi" class="categorias-icon">   
+
+                        <p>⭐ 4.8 · 20-30 min</p>
+
+                        <p>📍 2.1 km</p>
+
+                        <button onclick="verRestaurante('Sushi House')">
+                            Ver restaurante
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESTAURANTE 4 -->
+                <div class="restaurant-card" data-category="padaria">
+
+                
+
+                    <div class="restaurant-info">
+
+                        <h3>Padaria Central</h3>
+
+                        <img src="images/padariaimage.jpg" alt="Ícone Padaria" class="categorias-icon">
+
+                        <p>⭐ 4.6 · 10-20 min</p>
+
+                        <p>📍 0.8 km</p>
+
+                        <button onclick="verRestaurante('Padaria Central')">
+                            Ver loja
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="main.js"></script>
+
+</body>
+</html>
+```
