@@ -1,0 +1,636 @@
+
+/* ==============================
+   ROTA EXPRESS - ESTILO GERAL
+   Preto, vermelho e branco
+============================== */
+
+:root {
+    --preto: #101010;
+    --preto-claro: #1b1b1b;
+    --vermelho: #e50914;
+    --vermelho-hover: #ff2631;
+    --branco: #ffffff;
+    --cinzento: #bdbdbd;
+    --borda: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ==============================
+   CABEÇALHO
+============================== */
+
+header {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    background-color: #080808;
+    border-bottom: 3px solid var(--vermelho);
+}
+
+.logo {
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 13px;
+    border-radius: 6px;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+/* Carrinho */
+
+.cart-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--vermelho);
+}
+
+.cart-link:hover {
+    background-color: var(--vermelho-hover);
+}
+
+.cart-icon {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+============================== */
+
+main {
+    width: 100%;
+    min-height: 70vh;
+}
+
+section {
+    padding: 55px 7%;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(30px, 4vw, 48px);
+}
+
+h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
+p {
+    color: var(--cinzento);
+}
+
+/* ==============================
+   PÁGINA INICIAL - HERO
+============================== */
+
+.hero {
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 65px 7%;
+    background:
+        radial-gradient(
+            ellipse at top,
+            #471014 0%,
+            #201011 40%,
+            #101010 80%
+        );
+}
+
+.hero h1 {
+    max-width: 850px;
+    color: var(--branco);
+}
+
+.hero h1::first-letter {
+    color: var(--vermelho);
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Campo da morada */
+
+.address {
+    width: min(100%, 650px);
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--branco);
+    background-color: #202020;
+    border: 1px solid #444;
+    border-radius: 7px;
+    padding: 13px 15px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--vermelho);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaaaaa;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==============================
+   BOTÕES
+============================== */
+
+button,
+.btn,
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.25s,
+        transform 0.2s;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    background-color: var(--vermelho-hover);
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+.btn:focus-visible,
+.button:focus-visible {
+    outline: 2px solid var(--branco);
+    outline-offset: 3px;
+}
+
+/* ==============================
+   CATEGORIAS
+============================== */
+
+.categories {
+    text-align: center;
+    background-color: var(--preto);
+}
+
+.categories h2 {
+    margin-bottom: 35px;
+}
+
+.categories h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 12px auto 0;
+    background-color: var(--vermelho);
+    border-radius: 5px;
+}
+
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.category {
+    background-color: var(--preto-claro);
+    padding: 22px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    transition:
+        transform 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s;
+}
+
+.category:hover {
+    transform: translateY(-6px);
+    border-color: var(--vermelho);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15);
+}
+
+.categorias-icon {
+    width: 100%;
+    max-width: 170px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-bottom: 12px;
+}
+
+.category h3 {
+    color: var(--branco);
+}
+
+/* ==============================
+   RESTANTES PÁGINAS
+   Explorar, Pedidos, Perfil,
+   Contactos e Parceiros
+============================== */
+
+.page-title {
+    text-align: center;
+    padding: 45px 7% 20px;
+}
+
+.page-title h1 {
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Contentores e cartões */
+
+.container,
+.content,
+.page-content {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+.card,
+.product-card,
+.restaurant-card,
+.order-card,
+.profile-card,
+.form-card,
+.partner-card {
+    background-color: var(--preto-claro);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+}
+
+.card:hover,
+.product-card:hover,
+.restaurant-card:hover,
+.order-card:hover {
+    border-color: var(--vermelho);
+}
+
+/* Grelha de produtos e restaurantes */
+
+.product-list,
+.restaurant-list,
+.explore-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card img,
+.restaurant-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-card h3,
+.restaurant-card h3,
+.order-card h3,
+.profile-card h3,
+.partner-card h3 {
+    margin-bottom: 10px;
+}
+
+.price {
+    color: var(--vermelho-hover);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ==============================
+   FORMULÁRIOS
+============================== */
+
+form {
+    width: 100%;
+}
+
+.form-card {
+    width: min(600px, 100%);
+    margin: 0 auto 30px;
+}
+
+form label {
+    display: block;
+    margin: 15px 0 6px;
+    font-weight: bold;
+    color: var(--branco);
+}
+
+form input,
+form select,
+form textarea {
+    margin-bottom: 5px;
+}
+
+form button {
+    margin-top: 18px;
+}
+
+.form-card button {
+    width: 100%;
+}
+
+/* ==============================
+   PERFIL E INFORMAÇÕES
+============================== */
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-info p {
+    padding: 12px;
+    background-color: #252525;
+    border-radius: 6px;
+}
+
+.profile-info strong {
+    color: var(--branco);
+}
+
+/* ==============================
+   PEDIDOS E ESTADOS
+============================== */
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.status {
+    display: inline-block;
+    background-color: #292929;
+    color: var(--vermelho-hover);
+    border: 1px solid var(--vermelho);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ==============================
+   LINKS E LISTAS
+============================== */
+
+main a:not(.btn):not(.button) {
+    color: var(--vermelho-hover);
+    transition: color 0.2s;
+}
+
+main a:not(.btn):not(.button):hover {
+    color: var(--branco);
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ==============================
+   TABELAS
+============================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--preto-claro);
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+    border: 1px solid var(--borda);
+}
+
+th {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+tr:hover td {
+    background-color: #252525;
+}
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 1000px) {
+    header {
+        flex-direction: column;
+        padding: 20px 4%;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 9px 10px;
+    }
+
+    .category-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-list,
+    .restaurant-list,
+    .explore-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        gap: 15px;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    nav {
+        width: 100%;
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .cart-link {
+        margin-top: 5px;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 45px 5%;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .address {
+        flex-direction: column;
+    }
+
+    .address button {
+        width: 100%;
+    }
+
+    section {
+        padding: 35px 5%;
+    }
+
+    .category-list,
+    .product-list,
+    .restaurant-list,
+    .explore-list {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias-icon {
+        max-width: 220px;
+        height: 160px;
+    }
+
+    .container,
+    .content,
+    .page-content {
+        width: 90%;
+        padding-top: 25px;
+    }
+
+    .card,
+    .product-card,
+    .restaurant-card,
+    .order-card,
+    .profile-card,
+    .form-card,
+    .partner-card {
+        padding: 18px;
+    }
+
+    .order-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
