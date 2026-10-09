@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rota Express - Contactos</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="icon" type="image/x-icon" href="images/shoppingcart_77968.ico">
+</head>
+
+<body>
+
+  <header>
+
+        <!-- LOGOTIPO ROTA EXPRESS -->
+        <img src="images/Rota_Express.png" alt="Logo Rota Express" class="logo">
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="Explorar.html">Explorar</a>
+            <a href="Pedidos.html">Pedidos</a>
+            <a href="TornaTeParceiro.html">Torna-te Parceiro</a>
+            <a href="Perfil.html">Perfil</a>
+            <a href="Contactos.html">Contactos</a>
+
+            <!-- Link do Carrinho com o ícone .ico -->
+            <a href="#" class="cart-link">
+                <img src="images/shoppingcart_77968.ico" alt="Ícone Carrinho" class="cart-icon">
+                Carrinho
+            </a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- APRESENTAÇÃO DO SUPORTE -->
+        <section class="contact-hero">
+
+            <h1>Contactos e Suporte</h1>
+
+            <p>
+                Estamos aqui para ajudar.
+            </p>
+
+            <p class="contact-description">
+                Canal formal de apoio ao cliente para submissão de problemas
+                com pedidos anteriores, dúvidas administrativas ou sugestões.
+            </p>
+
+        </section>
+
+
+        <!-- ÁREA DE CONTACTO -->
+        <section class="contact-section">
+
+            <!-- FORMULÁRIO -->
+            <div class="contact-card">
+
+                <h2>Contactar o suporte</h2>
+
+                <p>
+                    Preenche o formulário abaixo e a nossa equipa irá analisar
+                    o teu pedido.
+                </p>
+
+                <form class="contact-form">
+
+                    <label for="name">Nome</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Introduz o teu nome"
+                        required
+                    >
+
+
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Introduz o teu email"
+                        required
+                    >
+
+
+                    <label for="order">Número do pedido</label>
+                    <input
+                        type="text"
+                        id="order"
+                        name="order"
+                        placeholder="Ex: RE-10245"
+                    >
+
+
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject">
+
+                        <option value="">Seleciona um assunto</option>
+                        <option value="order">Problema com um pedido</option>
+                        <option value="administrative">Dúvida administrativa</option>
+                        <option value="payment">Problema com pagamento</option>
+                        <option value="account">Problema com a conta</option>
+                        <option value="suggestion">Sugestão</option>
+                        <option value="other">Outro assunto</option>
+
+                    </select>
+
+
+                    <label for="message">Mensagem</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Descreve o teu problema, dúvida ou sugestão..."
+                        rows="6"
+                        required
+                    ></textarea>
+
+
+                    <button type="submit">
+                        Enviar pedido de suporte
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- INFORMAÇÃO DE SUPORTE -->
+            <div class="contact-card contact-info">
+
+                <h2>Como podemos ajudar?</h2>
+
+                <div class="support-item">
+
+                    <h3>📦 Problemas com pedidos</h3>
+
+                    <p>
+                        Se tiveste algum problema com um pedido anterior,
+                        indica o número do pedido para que possamos localizar
+                        e analisar a situação.
+                    </p>
+
+                </div>
+
+
+                <div class="support-item">
+
+                    <h3>📋 Dúvidas administrativas</h3>
+
+                    <p>
+                        Para questões relacionadas com a tua conta,
+                        pagamentos ou outros assuntos administrativos,
+                        utiliza o formulário de contacto.
+                    </p>
+
+                </div>
+
+
+                <div class="support-item">
+
+                    <h3>💡 Sugestões</h3>
+
+                    <p>
+                        A tua opinião é importante. Envia-nos sugestões
+                        para ajudar a melhorar a experiência na Rota Express.
+                    </p>
+
+                </div>
+
+
+                <div class="support-contact">
+
+                    <h3>Horário de apoio</h3>
+
+                    <p>
+                        Segunda a Sexta-feira<br>
+                        09:00 - 18:00
+                    </p>
+
+                    <p>
+                        <strong>Email:</strong> suporte@rotaexpress.pt
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>
