@@ -66,3 +66,25 @@ registerForm.addEventListener("submit", function(event) {
     message.textContent = "Registo efetuado com sucesso!";
     registerForm.reset();
 });
+
+// PAGINA DE RECUPERAÇÃO DE PASSWORD/CONTA 
+
+    document.getElementById('recover-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que a página recarregue
+
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback-message');
+
+            if (email) {
+                // Simulação de sucesso no envio
+                feedback.style.color = 'green';
+                feedback.textContent = `Se o e-mail ${email} estiver registado, enviaremos um link de recuperação em breve.`;
+                
+                // Opcional: limpar o campo
+                document.getElementById('email').value = '';
+            } else {
+                feedback.style.color = 'red';
+                feedback.textContent = 'Por favor, insere um e-mail válido.';
+            }
+        });
+ //FIM
