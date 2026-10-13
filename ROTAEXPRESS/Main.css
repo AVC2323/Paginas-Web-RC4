@@ -634,3 +634,43 @@ tr:hover td {
         padding: 8px;
     }
 }
+
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 350px;
+    margin: 30px auto;
+}
+
+#registerForm input {
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #111;
+    color: white;
+    font-size: 16px;
+}
+
+#registerForm input:focus {
+    outline: 2px solid white;
+}
+
+#registerForm button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#registerForm button:hover {
+    background-color: #ccc;
+}
+
+#registerMessage {
+    color: white;
+    text-align: center;
+}
