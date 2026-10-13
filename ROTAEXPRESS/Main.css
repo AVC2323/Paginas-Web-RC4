@@ -1,17 +1,34 @@
+/* ==========================================
+   ROTA EXPRESS — DARK PREMIUM
+   Preto | Vermelho | Branco
+========================================== */
 
-/* ==============================
-   ROTA EXPRESS - ESTILO GERAL
-   Preto, vermelho e branco
-============================== */
+/* 1. VARIÁVEIS E RESET */
 
 :root {
-    --preto: #101010;
-    --preto-claro: #1b1b1b;
-    --vermelho: #e50914;
-    --vermelho-hover: #ff2631;
-    --branco: #ffffff;
-    --cinzento: #bdbdbd;
-    --borda: #333333;
+    --bg: #0a0a0c;
+    --bg-secondary: #101014;
+    --surface: #151519;
+    --surface-hover: #1d1d23;
+
+    --red: #e52232;
+    --red-hover: #ff3545;
+    --red-dark: #a91523;
+
+    --white: #f8f8fa;
+    --text: #b3b3bd;
+    --muted: #777782;
+
+    --border: rgba(255, 255, 255, 0.09);
+    --border-red: rgba(229, 34, 50, 0.5);
+
+    --radius: 14px;
+    --radius-small: 9px;
+
+    --container: 1200px;
+
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    --transition: 0.25s ease;
 }
 
 * {
@@ -22,85 +39,170 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--preto);
-    color: var(--branco);
-    line-height: 1.6;
     min-height: 100vh;
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ==============================
-   CABEÇALHO
-============================== */
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+/* 2. TIPOGRAFIA */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--white);
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+}
+
+h1 {
+    font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+}
+
+h2 {
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+p {
+    color: var(--text);
+}
+
+strong {
+    color: var(--white);
+}
+
+/* 3. CABEÇALHO E NAVEGAÇÃO */
 
 header {
-    width: 100%;
-    min-height: 100px;
-    padding: 15px 5%;
+    position: relative;
+    z-index: 10;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 25px;
-    background-color: #080808;
-    border-bottom: 3px solid var(--vermelho);
+    justify-content: space-between;
+    gap: 28px;
+
+    width: 100%;
+    min-height: 94px;
+    padding: 16px max(5%, calc((100% - 1400px) / 2));
+
+    background: rgba(10, 10, 12, 0.96);
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    width: 190px;
+    width: 175px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 nav a {
-    color: var(--branco);
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 12px;
+    border-radius: var(--radius-small);
+
+    color: #c4c4cc;
+    font-size: 13px;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px 13px;
-    border-radius: 6px;
-    transition: background-color 0.25s, color 0.25s;
+    white-space: nowrap;
+
+    transition:
+        color var(--transition),
+        background var(--transition);
 }
 
 nav a:hover,
 nav a:focus-visible {
-    background-color: var(--vermelho);
-    color: var(--branco);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
 }
 
 /* Carrinho */
 
-.cart-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--vermelho);
+nav a.cart-link {
+    margin-left: 8px;
+    padding: 11px 16px;
+
+    color: #fff;
+    background: var(--red);
+    border: 1px solid var(--red);
 }
 
-.cart-link:hover {
-    background-color: var(--vermelho-hover);
+nav a.cart-link:hover {
+    background: var(--red-hover);
+    border-color: var(--red-hover);
 }
 
 .cart-icon {
-    width: 23px;
-    height: 23px;
+    width: 19px;
+    height: 19px;
     object-fit: contain;
 }
 
-/* ==============================
-   CONTEÚDO PRINCIPAL
-============================== */
+/* 4. ESTRUTURA GERAL */
 
 main {
     width: 100%;
@@ -108,166 +210,140 @@ main {
 }
 
 section {
-    padding: 55px 7%;
+    padding: 65px 6%;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 1.3;
+main > section > h2 {
+    margin-bottom: 30px;
 }
 
-h1 {
-    font-size: clamp(30px, 4vw, 48px);
+.page-title,
+.hero,
+.contact-hero {
+    text-align: center;
 }
 
-h2 {
-    font-size: clamp(24px, 3vw, 32px);
-    margin-bottom: 25px;
+.container,
+.content {
+    width: min(var(--container), 90%);
+    margin: 0 auto;
 }
 
-h3 {
-    font-size: 19px;
+[hidden] {
+    display: none !important;
 }
 
-p {
-    color: var(--cinzento);
-}
-
-/* ==============================
-   PÁGINA INICIAL - HERO
-============================== */
+/* 5. PÁGINA INICIAL */
 
 .hero {
-    min-height: 420px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 470px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     gap: 20px;
-    padding: 65px 7%;
+
+    padding: 85px 6%;
+
     background:
         radial-gradient(
-            ellipse at top,
-            #471014 0%,
-            #201011 40%,
-            #101010 80%
-        );
+            ellipse at 50% 0%,
+            rgba(150, 20, 32, 0.22),
+            transparent 65%
+        ),
+        linear-gradient(180deg, #101014 0%, var(--bg) 100%);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 380px;
+    height: 380px;
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(229, 34, 50, 0.07);
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .hero h1 {
     max-width: 850px;
-    color: var(--branco);
+    letter-spacing: -1.5px;
 }
 
 .hero h1::first-letter {
-    color: var(--vermelho);
+    color: var(--red);
 }
 
 .hero p {
-    font-size: 18px;
+    max-width: 650px;
+    font-size: 17px;
 }
 
-/* Campo da morada */
+/* Campo de morada */
 
 .address {
-    width: min(100%, 650px);
     display: flex;
     gap: 10px;
+
+    width: min(680px, 100%);
     margin-top: 15px;
+    padding: 7px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    box-shadow: var(--shadow);
 }
 
-input,
-select,
-textarea {
-    font-family: inherit;
-    font-size: 15px;
-    color: var(--branco);
-    background-color: #202020;
-    border: 1px solid #444;
-    border-radius: 7px;
-    padding: 13px 15px;
-    width: 100%;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--vermelho);
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #aaaaaa;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* ==============================
-   BOTÕES
-============================== */
-
-button,
-.btn,
-.button {
-    display: inline-block;
-    padding: 13px 22px;
-    background-color: var(--vermelho);
-    color: var(--branco);
+.address input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
     border: none;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition:
-        background-color 0.25s,
-        transform 0.2s;
 }
 
-button:hover,
-.btn:hover,
-.button:hover {
-    background-color: var(--vermelho-hover);
-    transform: translateY(-2px);
+.address input:focus {
+    border-color: transparent;
+    box-shadow: none;
 }
 
-button:focus-visible,
-.btn:focus-visible,
-.button:focus-visible {
-    outline: 2px solid var(--branco);
-    outline-offset: 3px;
-}
-
-/* ==============================
-   CATEGORIAS
-============================== */
+/* 6. CATEGORIAS */
 
 .categories {
+    max-width: 1500px;
+    margin: 0 auto;
     text-align: center;
-    background-color: var(--preto);
 }
 
-.categories h2 {
-    margin-bottom: 35px;
+.categories > h2 {
+    margin-bottom: 38px;
 }
 
-.categories h2::after {
+.categories > h2::after {
     content: "";
     display: block;
-    width: 70px;
-    height: 4px;
-    margin: 12px auto 0;
-    background-color: var(--vermelho);
-    border-radius: 5px;
+
+    width: 52px;
+    height: 3px;
+    margin: 14px auto 0;
+
+    background: var(--red);
+    border-radius: 10px;
 }
 
 .category-list {
@@ -277,63 +353,73 @@ button:focus-visible,
 }
 
 .category {
-    background-color: var(--preto-claro);
-    padding: 22px 15px;
-    border: 1px solid var(--borda);
-    border-radius: 12px;
+    overflow: hidden;
+
+    padding: 16px 16px 22px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
     transition:
-        transform 0.25s,
-        border-color 0.25s,
-        box-shadow 0.25s;
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .category:hover {
-    transform: translateY(-6px);
-    border-color: var(--vermelho);
-    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15);
+    transform: translateY(-5px);
+    background: var(--surface-hover);
+    border-color: var(--border-red);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
 
 .categorias-icon {
     width: 100%;
-    max-width: 170px;
-    height: 140px;
+    height: 165px;
+    margin-bottom: 17px;
+
     object-fit: cover;
-    border-radius: 9px;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    background: var(--bg-secondary);
 }
 
 .category h3 {
-    color: var(--branco);
+    font-size: 17px;
 }
 
-/* ==============================
-   RESTANTES PÁGINAS
-   Explorar, Pedidos, Perfil,
-   Contactos e Parceiros
-============================== */
+/* 7. TÍTULOS DAS PÁGINAS */
 
 .page-title {
-    text-align: center;
-    padding: 45px 7% 20px;
+    padding: 65px 6% 25px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(229, 34, 50, 0.11),
+            transparent 70%
+        );
 }
 
 .page-title h1 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .page-title p {
-    max-width: 700px;
+    max-width: 680px;
     margin: 0 auto;
+    font-size: 16px;
 }
 
-/* Contentores e cartões */
+/* 8. CONTENTORES E CARTÕES */
 
 .container,
 .content,
 .page-content {
-    width: min(1100px, 90%);
+    width: min(var(--container), 88%);
     margin: 0 auto;
-    padding: 35px 0 60px;
+    padding: 35px 0 70px;
 }
 
 .card,
@@ -342,40 +428,26 @@ button:focus-visible,
 .order-card,
 .profile-card,
 .form-card,
-.partner-card {
-    background-color: var(--preto-claro);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 20px;
-    transition: border-color 0.2s;
+.partner-card,
+.contact-card {
+    padding: 28px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+
+    transition:
+        border-color var(--transition),
+        background var(--transition);
 }
 
 .card:hover,
 .product-card:hover,
 .restaurant-card:hover,
 .order-card:hover {
-    border-color: var(--vermelho);
-}
-
-/* Grelha de produtos e restaurantes */
-
-.product-list,
-.restaurant-list,
-.explore-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.product-card img,
-.restaurant-card img {
-    display: block;
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-color: rgba(229, 34, 50, 0.35);
 }
 
 .product-card h3,
@@ -383,103 +455,401 @@ button:focus-visible,
 .order-card h3,
 .profile-card h3,
 .partner-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.product-card img,
+.restaurant-card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 17px;
+
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .price {
-    color: var(--vermelho-hover);
-    font-size: 20px;
-    font-weight: bold;
+    color: var(--red-hover);
+    font-size: 21px;
+    font-weight: 700;
 }
 
-/* ==============================
-   FORMULÁRIOS
-============================== */
+/* Grelhas de produtos e restaurantes */
+
+.product-list,
+.restaurant-list,
+.explore-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* 9. BOTÕES */
+
+button,
+.btn,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 46px;
+    padding: 12px 22px;
+
+    color: #fff;
+    background: var(--red);
+    border: 1px solid var(--red);
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    background: var(--red-hover);
+    border-color: var(--red-hover);
+    box-shadow: 0 6px 20px rgba(229, 34, 50, 0.18);
+}
+
+button:active,
+.btn:active,
+.button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible,
+.btn:focus-visible,
+.button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--red-hover);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 10. CAMPOS E FORMULÁRIOS */
 
 form {
     width: 100%;
 }
 
-.form-card {
-    width: min(600px, 100%);
-    margin: 0 auto 30px;
-}
-
 form label {
     display: block;
-    margin: 15px 0 6px;
-    font-weight: bold;
-    color: var(--branco);
+    margin: 18px 0 7px;
+
+    color: #ededf1;
+    font-size: 13px;
+    font-weight: 650;
 }
 
-form input,
-form select,
-form textarea {
-    margin-bottom: 5px;
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+
+    color: var(--white);
+    background: #0e0e12;
+    border: 1px solid #303037;
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #70707b;
+    opacity: 1;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #45454f;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: #121216;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(229, 34, 50, 0.12);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    color: var(--white);
+    background: var(--surface);
+}
+
+textarea {
+    min-height: 145px;
+    resize: vertical;
 }
 
 form button {
-    margin-top: 18px;
+    margin-top: 20px;
+}
+
+/* 11. PERFIL E LOGIN */
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.form-card,
+.profile-card {
+    width: min(480px, 100%);
+    margin: 0 auto;
+    padding: 34px;
+}
+
+.form-card h2,
+.profile-card h2 {
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.form-card > h2::after {
+    content: "";
+    display: block;
+
+    width: 38px;
+    height: 3px;
+    margin-top: 13px;
+
+    background: var(--red);
+    border-radius: 5px;
+}
+
+.form-card form label:first-of-type {
+    margin-top: 23px;
 }
 
 .form-card button {
     width: 100%;
 }
 
-/* ==============================
-   PERFIL E INFORMAÇÕES
-============================== */
+.register-text {
+    margin-top: 22px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.register-link {
+    color: var(--red-hover);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.login-message {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-card > h2 {
+    margin-bottom: 22px;
+}
 
 .profile-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    margin: 22px 0;
+    text-align: left;
 }
 
 .profile-info p {
-    padding: 12px;
-    background-color: #252525;
-    border-radius: 6px;
+    padding: 13px 15px;
+    background: #0e0e12;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    overflow-wrap: anywhere;
 }
 
 .profile-info strong {
-    color: var(--branco);
+    margin-right: 5px;
 }
 
-/* ==============================
-   PEDIDOS E ESTADOS
-============================== */
+/* 12. CONTACTOS E SUPORTE */
+
+.contact-hero {
+    padding: 65px 6% 35px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(229, 34, 50, 0.12),
+            transparent 70%
+        );
+}
+
+.contact-hero h1 {
+    margin-bottom: 15px;
+}
+
+.contact-hero > p {
+    max-width: 720px;
+    margin: 0 auto 12px;
+}
+
+.contact-hero .contact-description {
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-size: 14px;
+}
+
+.contact-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: 25px;
+
+    width: min(var(--container), 88%);
+    margin: 0 auto;
+    padding: 25px 0 80px;
+}
+
+.contact-card {
+    min-width: 0;
+}
+
+.contact-card h2 {
+    margin-bottom: 12px;
+    font-size: 23px;
+}
+
+.contact-card > p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.contact-form label {
+    margin-top: 17px;
+}
+
+.contact-form button {
+    width: 100%;
+}
+
+.contact-info {
+    padding: 30px;
+}
+
+.support-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.support-item h3,
+.support-contact h3 {
+    margin-bottom: 9px;
+    font-size: 16px;
+}
+
+.support-item p,
+.support-contact p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.support-contact {
+    margin-top: 24px;
+    padding: 19px;
+
+    background: #101014;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.support-contact p + p {
+    margin-top: 12px;
+}
+
+/* 13. PEDIDOS E ESTADOS */
 
 .order-card {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .status {
-    display: inline-block;
-    background-color: #292929;
-    color: var(--vermelho-hover);
-    border: 1px solid var(--vermelho);
-    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+
     padding: 5px 12px;
-    font-size: 13px;
-    font-weight: bold;
+
+    color: #ff7b86;
+    background: rgba(229, 34, 50, 0.1);
+    border: 1px solid var(--border-red);
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
 }
 
-/* ==============================
-   LINKS E LISTAS
-============================== */
+/* 14. LINKS E LISTAS */
 
-main a:not(.btn):not(.button) {
-    color: var(--vermelho-hover);
-    transition: color 0.2s;
-}
-
-main a:not(.btn):not(.button):hover {
-    color: var(--branco);
+main a:not(.btn):not(.button):not(.register-link) {
+    transition: color var(--transition);
 }
 
 ul {
@@ -488,68 +858,71 @@ ul {
 
 li {
     margin-bottom: 8px;
+    color: var(--text);
 }
 
-/* ==============================
-   TABELAS
-============================== */
+/* 15. TABELAS */
 
 table {
     width: 100%;
+    margin: 22px 0;
+
+    background: var(--surface);
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: var(--preto-claro);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    overflow: hidden;
 }
 
 th,
 td {
-    padding: 13px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
     text-align: left;
-    border: 1px solid var(--borda);
 }
 
 th {
-    background-color: var(--vermelho);
-    color: var(--branco);
+    color: #fff;
+    background: #a91523;
+    font-weight: 700;
+}
+
+td {
+    color: var(--text);
 }
 
 tr:hover td {
-    background-color: #252525;
+    background: var(--surface-hover);
 }
 
-/* ==============================
-   RESPONSIVIDADE
-============================== */
+/* 16. SCROLLBAR */
 
-@media (max-width: 1000px) {
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #37373e;
+    border: 2px solid var(--bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red-dark);
+}
+
+/* 17. TABLETS */
+
+@media (max-width: 1050px) {
     header {
         flex-direction: column;
-        padding: 20px 4%;
-    }
-
-    nav {
-        gap: 5px;
-    }
-
-    nav a {
-        font-size: 14px;
-        padding: 9px 10px;
-    }
-
-    .category-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .product-list,
-    .restaurant-list,
-    .explore-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    header {
-        gap: 15px;
+        justify-content: center;
+        gap: 16px;
+        padding: 22px 4%;
     }
 
     .logo {
@@ -557,57 +930,132 @@ tr:hover td {
     }
 
     nav {
-        width: 100%;
-        gap: 5px;
+        justify-content: center;
+        gap: 4px;
     }
 
     nav a {
-        font-size: 13px;
-        padding: 8px;
+        padding: 9px 10px;
+        font-size: 12px;
     }
 
-    .cart-link {
-        margin-top: 5px;
+    .contact-section {
+        grid-template-columns: 1fr;
+        width: min(680px, 90%);
     }
 
-    .hero {
-        min-height: 350px;
+    .product-list,
+    .restaurant-list,
+    .explore-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 18. TELEMÓVEIS */
+
+@media (max-width: 650px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 18px 4%;
+        gap: 14px;
+    }
+
+    .logo {
+        width: 145px;
+    }
+
+    nav {
+        width: 100%;
+        gap: 4px;
+    }
+
+    nav a {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    nav a.cart-link {
+        margin-left: 0;
+        padding: 8px 10px;
+    }
+
+    .cart-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    section {
         padding: 45px 5%;
     }
 
+    .hero {
+        min-height: 390px;
+        padding: 65px 5%;
+        gap: 17px;
+    }
+
+    .hero h1 {
+        letter-spacing: -0.8px;
+    }
+
     .hero p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .address {
         flex-direction: column;
+        padding: 8px;
+    }
+
+    .address input {
+        min-height: 48px;
     }
 
     .address button {
         width: 100%;
     }
 
-    section {
-        padding: 35px 5%;
+    .category-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
     }
 
-    .category-list,
-    .product-list,
-    .restaurant-list,
-    .explore-list {
-        grid-template-columns: 1fr;
+    .category {
+        padding: 10px 10px 16px;
     }
 
     .categorias-icon {
-        max-width: 220px;
-        height: 160px;
+        height: 115px;
+        margin-bottom: 10px;
+    }
+
+    .category h3 {
+        font-size: 14px;
+    }
+
+    .categories > h2 {
+        margin-bottom: 27px;
+    }
+
+    .page-title {
+        padding: 45px 5% 18px;
     }
 
     .container,
     .content,
     .page-content {
         width: 90%;
-        padding-top: 25px;
+        padding: 25px 0 45px;
+    }
+
+    .product-list,
+    .restaurant-list,
+    .explore-list {
+        grid-template-columns: 1fr;
+        gap: 17px;
     }
 
     .card,
@@ -616,204 +1064,284 @@ tr:hover td {
     .order-card,
     .profile-card,
     .form-card,
-    .partner-card {
-        padding: 18px;
+    .partner-card,
+    .contact-card {
+        padding: 21px;
     }
 
-    .order-card {
-        align-items: flex-start;
-        flex-direction: column;
+    .form-card,
+    .profile-card {
+        width: 100%;
     }
 
-    table {
-        font-size: 13px;
+    .form-card h2,
+    .profile-card h2,
+    .contact-card h2 {
+        font-size: 21px;
+    }
+
+    .contact-hero {
+        padding: 48px 5% 25px;
+    }
+
+    .contact-section {
+        width: 90%;
+        padding: 20px 0 50px;
+        gap: 18px;
+    }
+
+    .contact-info {
+        padding: 21px;
+    }
+
+    .support-contact {
+        padding: 15px;
     }
 
     th,
     td {
-        padding: 8px;
+        padding: 10px 8px;
+        font-size: 12px;
     }
 }
 
-#registerForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 350px;
-    margin: 30px auto;
+/* 19. ECRÃS MUITO PEQUENOS */
+
+@media (max-width: 380px) {
+    nav a {
+        padding: 7px;
+        font-size: 10px;
+    }
+
+    .category-list {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias-icon {
+        height: 175px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .form-card,
+    .profile-card,
+    .contact-card {
+        padding: 17px;
+    }
 }
 
+/* 20. ACESSIBILIDADE E ANIMAÇÕES */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}/* ==========================================
+   ROTA EXPRESS — PÁGINA DE REGISTO
+========================================== */
+
+body:has(#registerForm) {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(229, 34, 50, 0.13),
+            transparent 55%
+        ),
+        #0a0a0c;
+}
+
+/* Cartão de registo */
+
+#registerForm {
+    width: min(440px, calc(100% - 36px));
+    margin: 65px auto 80px;
+    padding: 38px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    background: linear-gradient(
+        145deg,
+        #19191e,
+        #111114 75%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.4),
+        0 0 35px rgba(229, 34, 50, 0.04);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalhe vermelho superior */
+
+#registerForm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #a91523,
+        #ff3545,
+        #a91523
+    );
+}
+
+/* Título */
+
+#registerForm::after {
+    content: "Cria a tua conta";
+    order: -1;
+
+    color: #f8f8fa;
+    font-size: 28px;
+    font-weight: 750;
+    letter-spacing: -0.8px;
+    line-height: 1.3;
+
+    margin-bottom: 3px;
+}
+
+/* Campos */
+
 #registerForm input {
-    padding: 12px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #111;
-    color: white;
-    font-size: 16px;
+    width: 100%;
+    min-height: 51px;
+    padding: 14px 15px;
+
+    color: #f8f8fa;
+    background: #0c0c10;
+
+    border: 1px solid #303037;
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#registerForm input::placeholder {
+    color: #858590;
+}
+
+#registerForm input:hover {
+    border-color: #484851;
 }
 
 #registerForm input:focus {
-    outline: 2px solid white;
+    background: #111116;
+    border-color: #e52232;
+
+    box-shadow: 0 0 0 3px rgba(229, 34, 50, 0.12);
+
+    outline: none;
 }
 
+/* Botão */
+
 #registerForm button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    font-weight: bold;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 5px;
+    padding: 13px 20px;
+
+    color: #fff;
+    background: linear-gradient(
+        135deg,
+        #e52232,
+        #bd1726
+    );
+
+    border: 1px solid #e52232;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0.3px;
+
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 #registerForm button:hover {
-    background-color: #ccc;
+    background: linear-gradient(
+        135deg,
+        #ff3545,
+        #e52232
+    );
+
+    box-shadow: 0 7px 22px rgba(229, 34, 50, 0.22);
+    transform: translateY(-2px);
 }
+
+#registerForm button:active {
+    transform: scale(0.98);
+}
+
+#registerForm button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Mensagens do JavaScript */
 
 #registerMessage {
-    color: white;
-    text-align: center;
-}
-
-/* ==============================
-   Pagina de recuperar conta
-============================== */
-
-/* --- Estilos Gerais --- */
-* {
+    min-height: 0;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-body {
-    background-color: #f4f6f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* --- Container do Formulário --- */
-.login-container {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.login-container h2 {
-    margin-bottom: 10px;
-    color: #ff4757; /* Cor temática associada a entrega/comida, ajusta se usares outra */
-}
-
-.login-container p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-/* --- Campos de Entrada --- */
-.input-group {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
+    color: #ff7b86;
     font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #444;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
+#registerMessage:empty {
+    display: none;
 }
 
-.input-group input:focus {
-    border-color: #ff4757;
-}
+/* Telemóveis */
 
-/* --- Botão de Submissão --- */
-.btn-submit {
-    width: 100%;
-    padding: 12px;
-    background-color: #ff4757;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+@media (max-width: 600px) {
+    #registerForm {
+        width: calc(100% - 32px);
+        margin: 38px auto 50px;
+        padding: 28px 22px;
+        gap: 14px;
 
-.btn-submit:hover {
-    background-color: #e84118;
-}
-
-/* --- Links Extras --- */
-.extra-links a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s ease;
-}
-
-.extra-links a:hover {
-    text-decoration: underline;
-    color: #0056b3;
-}
-
-
-/* ==========================================
-   SUPORTE PARA MODO ESCURO (Opcional/Automático)
-   Se já tiveres uma classe ou preferência de dark mode
-   ================================---------- */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
+        border-radius: 15px;
     }
 
-    .login-container {
-        background: #1e1e1e;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    #registerForm::after {
+        font-size: 25px;
     }
 
-    .login-container p, .input-group label {
-        color: #b0b0b0;
-    }
-
-    .input-group input {
-        background-color: #2c2c2c;
-        border: 1px solid #444;
-        color: #fff;
-    }
-
-    .input-group input:focus {
-        border-color: #ff4757;
-    }
-
-    .extra-links a {
-        color: #4dabf7;
+    #registerForm input {
+        min-height: 49px;
     }
 }
-
-/* ==============================
-   Fim Pagina de recuperar conta
-============================== */
