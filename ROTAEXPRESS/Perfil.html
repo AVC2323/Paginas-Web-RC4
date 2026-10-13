@@ -1,35 +1,109 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rota Express - Contactos</title>
+    <title>Rota Express - Perfil</title>
 
     <link rel="stylesheet" href="Main.css">
+    <link rel="icon" type="image/x-icon" href="Images/shoppingcart_77968.ico">
 
-    <link rel="icon" type="image/x-icon" href="images/shoppingcart_77968.ico">
+    <script src="Main.js" defer></script>
 </head>
 
 <body>
 
-  <header>
+    <header>
+        <img src="Images/Rota_Express.png"
+             alt="Logo Rota Express"
+             class="logo">
 
-        <!-- LOGOTIPO ROTA EXPRESS -->
-        <img src="images/Rota_Express.png" alt="Logo Rota Express" class="logo">
         <nav>
-            <a href="home.html">Início</a>
+            <a href="Home.html">Início</a>
             <a href="Explorar.html">Explorar</a>
             <a href="Pedidos.html">Pedidos</a>
             <a href="TornaTeParceiro.html">Torna-te Parceiro</a>
             <a href="Perfil.html">Perfil</a>
-            <a href="Contactos.html">Contactos</a>
+            <a href="Register.html">Contactos</a>
 
-            <!-- Link do Carrinho com o ícone .ico -->
             <a href="#" class="cart-link">
-                <img src="images/shoppingcart_77968.ico" alt="Ícone Carrinho" class="cart-icon">
+                <img src="Images/shoppingcart_77968.ico"
+                     alt="Ícone Carrinho"
+                     class="cart-icon">
                 Carrinho
             </a>
         </nav>
-
     </header>
+
+    <main>
+        <section class="page-title">
+            <h1>O teu perfil</h1>
+            <p>Inicia sessão para continuares na Rota Express.</p>
+        </section>
+
+        <section class="page-content">
+
+            <!-- Formulário de login -->
+            <div class="form-card" id="loginSection">
+                <h2>Iniciar sessão</h2>
+
+                <form id="loginForm">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Introduz o teu username"
+                        autocomplete="username"
+                        required>
+
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Introduz a tua password"
+                        autocomplete="current-password"
+                        required>
+
+                    <p id="loginMessage"
+                       class="login-message"
+                       role="status"
+                       aria-live="polite"></p>
+
+                    <button type="submit" id="loginButton">
+                        Login
+                    </button>
+
+                    <p class="register-text">
+                        Ainda não tens conta?
+                        <a href="Register.html" class="register-link">
+                            Register
+                        </a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Área apresentada depois do login -->
+            <div class="profile-card" id="profileSection" hidden>
+                <h2>Bem-vindo à Rota Express!</h2>
+
+                <div class="profile-info">
+                    <p>
+                        <strong>Username:</strong>
+                        <span id="profileUsername"></span>
+                    </p>
+
+                    <p>A tua sessão está iniciada.</p>
+                </div>
+
+                <button type="button" id="logoutButton">
+                    Logout
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>
