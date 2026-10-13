@@ -817,3 +817,58 @@ body {
 /* ==============================
    Fim Pagina de recuperar conta
 ============================== */
+
+
+/* ==============================
+   LOGIN E AUTENTICACAO
+============================== */
+
+.login-message {
+    min-height: 24px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.login-message.error {
+    color: #ff5252;
+}
+
+.login-message.success {
+    color: #4caf50;
+}
+
+.register-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register-link {
+    color: var(--vermelho-hover);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Esconder a área que não está ativa */
+#loginSection[hidden],
+#profileSection[hidden] {
+    display: none;
+}
+
+/* Estado do botão durante o bloqueio */
+#loginButton:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* Adaptar o formulário a ecrãs pequenos */
+@media (max-width: 600px) {
+    .register-text {
+        font-size: 14px;
+    }
+}
