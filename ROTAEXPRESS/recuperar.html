@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota Express - Recuperar Palavra-passe</title>
+    <!-- Ligação ao teu ficheiro CSS (ajusta o nome se necessário, por exemplo, estilo.css) -->
+    <link rel="stylesheet" href="Main.css">
+   
+</head>
+<body>
+
+    <div class="login-container"> <!-- Podes reutilizar a classe de container que usaste no login -->
+        <h2>Recuperar Conta</h2>
+        <p>Insere o teu e-mail associado para receberes as instruções de redefinição da palavra-passe.</p>
+        
+        <form id="recover-form">
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Instruções</button>
+        </form>
+
+        <!-- Mensagem de feedback -->
+        <p id="feedback-message" style="margin-top: 15px; font-weight: bold;"></p>
+
+        <div class="extra-links" style="margin-top: 20px;">
+            <a href="Perfil.html">Lembraste-te da palavra-passe? Entrar</a>
+        </div>
+    </div>
+     <script src ="Main.js"></script>
+</body>
+</html>
