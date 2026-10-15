@@ -34,11 +34,11 @@ function saveUsers(users) {
 function initializeUsers() {
     const users = getUsers();
 
-    if (!users.some(user => user.username.toLowerCase() === "demo")) {
+    if (!users.some(user => user.username.toLowerCase() === "admin")) {
         users.push({
-            username: "demo",
-            password: "Rota123!",
-            email: "demo@rotaexpress.pt"
+            username: "admin",
+            password: "0000",
+            email: "admin@rotaexpress.pt"
         });
 
         saveUsers(users);
