@@ -36,122 +36,83 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
 
    
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("registerForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (!form) {
-        console.error("Não foi encontrado o formulário registerForm.");
+
+const form = document.getElementById("registerForm");
+
+if (!form) {
+    console.error("Não foi encontrado o formulário registerForm.");
+    return;
+}
+
+const loginInput = document.getElementById("login");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
+const nameInput = document.getElementById("name");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const login = loginInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const name = nameInput.value.trim();
+
+    if (!login || !password || !confirmPassword || !name) {
+        alert("Preenche todos os campos.");
         return;
     }
 
-    const emailInput = document.getElementById("email");
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const confirmInput = document.getElementById("confirmPassword");
-    const passwordMessage = document.getElementById("passwordMessage");
-    const registerMessage = document.getElementById("registerMessage");
+    if (password !== confirmPassword) {
+        alert("As palavras-passe não coincidem!");
+        confirmPasswordInput.focus();
+        return;
+    }
 
-    const validarEmail = email =>
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (password.length < 8) {
+        alert("A palavra-passe deve ter pelo menos 8 caracteres.");
+        passwordInput.focus();
+        return;
+    }
 
-    const passwordsIguais = (password, confirmPassword) =>
-        password === confirmPassword;
+    let users = [];
 
-    // Verificar as passwords enquanto o utilizador escreve
-    const verificarPasswords = () => {
-        if (confirmInput.value === "") {
-            passwordMessage.textContent = "";
-            return false;
-        }
+    try {
+        users = JSON.parse(localStorage.getItem("rotaExpressUsers")) || [];
+    } catch (error) {
+        alert("Não foi possível ler os utilizadores guardados.");
+        return;
+    }
 
-        const iguais = passwordsIguais(
-            passwordInput.value,
-            confirmInput.value
-        );
-
-        passwordMessage.textContent = iguais
-            ? "As passwords coincidem."
-            : "As passwords não coincidem.";
-
-        passwordMessage.style.color = iguais ? "green" : "red";
-
-        return iguais;
-    };
-
-    passwordInput.addEventListener("input", verificarPasswords);
-    confirmInput.addEventListener("input", verificarPasswords);
-
-    form.addEventListener("submit", event => {
-        event.preventDefault();
-
-        const email = emailInput.value.trim().toLowerCase();
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value;
-        const confirmPassword = confirmInput.value;
-
-        registerMessage.textContent = "";
-
-        if (!validarEmail(email)) {
-            registerMessage.textContent = "Introduz um email válido.";
-            return;
-        }
-
-        if (!username || !password || !confirmPassword) {
-            registerMessage.textContent = "Preenche todos os campos.";
-            return;
-        }
-
-        // A comparação acontece antes de guardar o utilizador
-        if (!passwordsIguais(password, confirmPassword)) {
-            verificarPasswords();
-            registerMessage.textContent =
-                "Registo cancelado: as passwords são diferentes.";
-            return;
-        }
-
-        let users;
-
-        try {
-            users = JSON.parse(localStorage.getItem("users") || "[]");
-
-            if (!Array.isArray(users)) {
-                users = [];
-            }
-        } catch {
-            users = [];
-        }
-
-        if (users.some(user => user.email === email)) {
-            registerMessage.textContent = "Este email já está registado.";
-            return;
-        }
-
-        if (users.some(user =>
-            user.username.toLowerCase() === username.toLowerCase()
-        )) {
-            registerMessage.textContent = "Este username já existe.";
-            return;
-        }
-
-        users.push({
-            email: email,
-            username: username,
-            password: password
-        });
-
-        try {
-            localStorage.setItem("users", JSON.stringify(users));
-        } catch {
-            registerMessage.textContent =
-                "Não foi possível guardar o registo no navegador.";
-            return;
-        }
-
-        registerMessage.textContent = "Registo efetuado com sucesso!";
-        form.reset();
-        passwordMessage.textContent = "";
+    const existingUser = users.some(function (user) {
+        return user.login.toLowerCase() === login.toLowerCase();
     });
+
+    if (existingUser) {
+        alert("Este email ou login já está registado.");
+        loginInput.focus();
+        return;
+    }
+
+    users.push({
+        login: login,
+        password: password,
+        name: name
+    });
+
+    localStorage.setItem("rotaExpressUsers", JSON.stringify(users));
+
+    alert("Registo efetuado com sucesso!");
+
+    form.reset();
+
+    window.location.href = "login.html";
 });
+
+
+});
+
     // =========================
     // RECUPERAR PASSWORD
     // IDs: btnRecuperarPassword, recuperarPasswordForm,
